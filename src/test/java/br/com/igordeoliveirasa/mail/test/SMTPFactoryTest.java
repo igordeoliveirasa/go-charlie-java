@@ -1,9 +1,5 @@
 package br.com.igordeoliveirasa.mail.test;
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 
 import br.com.igordeoliveirasa.charliemail.SMTPFactory;
 import br.com.igordeoliveirasa.charliemail.ISMTP;
