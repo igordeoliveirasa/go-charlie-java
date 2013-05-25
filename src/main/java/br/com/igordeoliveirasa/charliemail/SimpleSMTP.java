@@ -1,6 +1,9 @@
 package br.com.igordeoliveirasa.charliemail;
 
+import java.io.UnsupportedEncodingException;
 import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
@@ -42,13 +45,13 @@ public class SimpleSMTP implements ISMTP {
     }
     
     @Override
-    public boolean sendTextMail(String from, String to, String cc, String bcc, String subject, String message) {
+    public boolean sendTextMail(String from, String displayName, String to, String cc, String bcc, String subject, String message) {
         
-        return sendTextMail(from, takeCareOfArrayInput(to), takeCareOfArrayInput(cc), takeCareOfArrayInput(bcc), subject, message);
+        return sendTextMail(from, displayName, takeCareOfArrayInput(to), takeCareOfArrayInput(cc), takeCareOfArrayInput(bcc), subject, message);
     }
     
     @Override
-    public boolean sendTextMail(String from, String[] toArray, String[] ccArray, String[] bccArray, String subject, String message) {
+    public boolean sendTextMail(String from, String displayName, String[] toArray, String[] ccArray, String[] bccArray, String subject, String message) {
         
         Session session = Session.getInstance(this.props,
           new javax.mail.Authenticator() {
@@ -61,7 +64,7 @@ public class SimpleSMTP implements ISMTP {
         try {
 
             MimeMessage mimeMessage = new MimeMessage(session);
-            mimeMessage.setFrom(new InternetAddress(from));
+            mimeMessage.setFrom(new InternetAddress(from, displayName));
 
             if (toArray==null||toArray.length==0) {
                 return false;
@@ -90,6 +93,8 @@ public class SimpleSMTP implements ISMTP {
             mimeMessage.setText(message, "UTF-8");
             
             Transport.send(mimeMessage);
+        } catch (UnsupportedEncodingException ex) {
+            Logger.getLogger(SimpleSMTP.class.getName()).log(Level.SEVERE, null, ex);
         } catch (MessagingException e) {
                 //throw new RuntimeException(e);
                 return false;
@@ -98,12 +103,12 @@ public class SimpleSMTP implements ISMTP {
     }  
 
     @Override
-    public boolean sendHTMLMail(String from, String to, String cc, String bcc, String subject, String htmlMessage) {
-        return sendHTMLMail(from, takeCareOfArrayInput(to), takeCareOfArrayInput(cc), takeCareOfArrayInput(bcc), subject, htmlMessage);
+    public boolean sendHTMLMail(String from, String displayName, String to, String cc, String bcc, String subject, String htmlMessage) {
+        return sendHTMLMail(from, displayName, takeCareOfArrayInput(to), takeCareOfArrayInput(cc), takeCareOfArrayInput(bcc), subject, htmlMessage);
     }
     
     @Override
-    public boolean sendHTMLMail(String from, String[] toArray, String[] ccArray, String[] bccArray, String subject, String htmlMessage) {
+    public boolean sendHTMLMail(String from, String displayName, String[] toArray, String[] ccArray, String[] bccArray, String subject, String htmlMessage) {
         
         Session session = Session.getInstance(this.props,
           new javax.mail.Authenticator() {
@@ -116,7 +121,7 @@ public class SimpleSMTP implements ISMTP {
         try {
 
             MimeMessage mimeMessage = new MimeMessage(session);
-            mimeMessage.setFrom(new InternetAddress(from));
+            mimeMessage.setFrom(new InternetAddress(from, displayName));
 
             if (toArray==null||toArray.length==0) {
                 return false;
@@ -145,6 +150,8 @@ public class SimpleSMTP implements ISMTP {
             mimeMessage.setContent(htmlMessage, "text/html");
             
             Transport.send(mimeMessage);
+        } catch (UnsupportedEncodingException ex) {
+            Logger.getLogger(SimpleSMTP.class.getName()).log(Level.SEVERE, null, ex);
         } catch (MessagingException e) {
                 //throw new RuntimeException(e);
                 return false;
