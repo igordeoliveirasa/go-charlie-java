@@ -4,10 +4,7 @@ package br.com.igordeoliveirasa.mail.test;
 import br.com.igordeoliveirasa.charliemail.SMTPFactory;
 import br.com.igordeoliveirasa.charliemail.ISMTP;
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import junit.framework.TestCase;
 import org.apache.commons.io.FileUtils;
 
