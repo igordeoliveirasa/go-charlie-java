@@ -32,9 +32,19 @@ public class SimpleSMTP implements ISMTP {
         this.props.put("mail.smtp.port", "587");
     }
     
+    private String[] takeCareOfArrayInput(String input) {
+        if (input==null) {
+            return new String[]{};
+        }
+        else {
+            return new String[]{input};
+        }
+    }
+    
     @Override
     public boolean sendTextMail(String from, String to, String cc, String bcc, String subject, String message) {
-        return sendTextMail(from, new String[]{to}, new String[]{cc}, new String[]{bcc}, subject, message);
+        
+        return sendTextMail(from, takeCareOfArrayInput(to), takeCareOfArrayInput(cc), takeCareOfArrayInput(bcc), subject, message);
     }
     
     @Override
@@ -89,7 +99,7 @@ public class SimpleSMTP implements ISMTP {
 
     @Override
     public boolean sendHTMLMail(String from, String to, String cc, String bcc, String subject, String htmlMessage) {
-        return sendHTMLMail(from, new String[]{to}, new String[]{cc}, new String[]{bcc}, subject, htmlMessage);
+        return sendHTMLMail(from, takeCareOfArrayInput(to), takeCareOfArrayInput(cc), takeCareOfArrayInput(bcc), subject, htmlMessage);
     }
     
     @Override
