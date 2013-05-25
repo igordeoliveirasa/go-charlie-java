@@ -89,7 +89,7 @@ public class SimpleSMTP implements ISMTP {
 
     @Override
     public boolean sendHTMLMail(String from, String to, String cc, String bcc, String subject, String htmlMessage) {
-        return sendTextMail(from, new String[]{to}, new String[]{cc}, new String[]{bcc}, subject, htmlMessage);
+        return sendHTMLMail(from, new String[]{to}, new String[]{cc}, new String[]{bcc}, subject, htmlMessage);
     }
     
     @Override
