@@ -16,7 +16,7 @@ import org.apache.commons.io.FileUtils;
  * @author igor
  */
 public class SMTPFactoryTest extends TestCase {
-    public final String PASSWORD = "Umg0erre";
+    public final String PASSWORD = "YOURPASSWORD";
     
     public SMTPFactoryTest(String testName) {
         super(testName);
