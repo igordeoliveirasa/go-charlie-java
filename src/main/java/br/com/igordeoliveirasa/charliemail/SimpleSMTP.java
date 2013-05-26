@@ -145,9 +145,9 @@ public class SimpleSMTP implements ISMTP {
                     mimeMessage.addRecipient(Message.RecipientType.BCC, new InternetAddress(bccArray[i]));
                 }
             }
-
             mimeMessage.setSubject(subject, "UTF-8");
-            mimeMessage.setContent(htmlMessage, "text/html");
+            mimeMessage.setContent(htmlMessage, "text/html; charset=UTF-8");
+            mimeMessage.setHeader("Content-Type", "text/html; charset=UTF-8");
             
             Transport.send(mimeMessage);
         } catch (UnsupportedEncodingException ex) {
