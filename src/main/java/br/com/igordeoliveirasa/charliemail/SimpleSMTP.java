@@ -146,9 +146,9 @@ public class SimpleSMTP implements ISMTP {
                 }
             }
             
-            mimeMessage.setHeader("Content-Type", "text/html; charset=iso-8859-1");
-            mimeMessage.setSubject(subject, "ISO-8859-1");
-            mimeMessage.setContent(htmlMessage, "text/html; charset=ISO-8859-1");
+            //mimeMessage.setHeader("Content-Type", "text/html; charset=iso-8859-1");
+            mimeMessage.setSubject(subject, "UTF-8");
+            mimeMessage.setContent(htmlMessage, "text/html; charset=UTF-8");
             
             
             Transport.send(mimeMessage);
