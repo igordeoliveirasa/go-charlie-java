@@ -23,7 +23,7 @@ public class SimpleSMTP implements ISMTP {
     private String password;
     Properties props;
     
-    public SimpleSMTP(String smtpHost, String username, String password) {
+    public SimpleSMTP(String smtpHost, String username, String password, int port) {
         this.smtpHost = smtpHost;
         this.username = username;
         this.password = password;
@@ -32,7 +32,7 @@ public class SimpleSMTP implements ISMTP {
         this.props.put("mail.smtp.auth", "true");
         this.props.put("mail.smtp.starttls.enable", "true");
         this.props.put("mail.smtp.host", this.smtpHost);
-        this.props.put("mail.smtp.port", "587");
+        this.props.put("mail.smtp.port", port);
     }
     
     private String[] takeCareOfArrayInput(String input) {
@@ -64,8 +64,13 @@ public class SimpleSMTP implements ISMTP {
         try {
 
             MimeMessage mimeMessage = new MimeMessage(session);
-            mimeMessage.setFrom(new InternetAddress(from, displayName));
-
+            mimeMessage.setFrom(new InternetAddress(this.username, displayName));
+            
+            mimeMessage.setReplyTo(new javax.mail.Address[]
+            {
+                new javax.mail.internet.InternetAddress(from)
+            });
+            
             if (toArray==null||toArray.length==0) {
                 return false;
             }
@@ -121,8 +126,13 @@ public class SimpleSMTP implements ISMTP {
         try {
 
             MimeMessage mimeMessage = new MimeMessage(session);
-            mimeMessage.setFrom(new InternetAddress(from, displayName));
-
+            mimeMessage.setFrom(new InternetAddress(this.username, displayName));
+            
+            mimeMessage.setReplyTo(new javax.mail.Address[]
+            {
+                new javax.mail.internet.InternetAddress(from)
+            });
+            
             if (toArray==null||toArray.length==0) {
                 return false;
             }

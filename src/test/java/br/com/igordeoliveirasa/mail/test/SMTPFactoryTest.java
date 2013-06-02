@@ -13,7 +13,7 @@ import org.apache.commons.io.FileUtils;
  * @author igor
  */
 public class SMTPFactoryTest extends TestCase {
-    public final String PASSWORD = "YOURPASSWORD";
+    public final String PASSWORD = "Umg0erre";
     
     public SMTPFactoryTest(String testName) {
         super(testName);
@@ -42,7 +42,7 @@ public class SMTPFactoryTest extends TestCase {
     }
     */
     public void testSendHTMLMailHelloWorld() {
-        ISMTP smtp = SMTPFactory.build("smtp.prateleiravirtual.com", "contato@prateleiravirtual.com", PASSWORD);
+        ISMTP smtp = SMTPFactory.build("smtp.prateleiravirtual.com", "contato@prateleiravirtual.com", PASSWORD, SMTPFactory.SMTP_DEFAULT_PORT);
         
         
         String message="";
@@ -53,17 +53,17 @@ public class SMTPFactoryTest extends TestCase {
         }
         
         
-        boolean ret = smtp.sendHTMLMail("contato@prateleiravirtual.com",
+        boolean ret = smtp.sendHTMLMail("igordeoliveirasa@gmail.com",
                 "Prateleira Virtual",
                 new String[] {
                     "igor.deoliveirasa@facebook.com",
                     "igordeoliveirasa@gmail.com", 
-                    "mligordeoliveirasa@gmail.com", 
-                    "debrynha_portilho@hotmail.com", 
+                    "mligordeoliveirasa@gmail.com" 
+                    /*"debrynha_portilho@hotmail.com", 
                     "deboraportilho@bol.com.br",
                     "deboraportilhogarcia@gmail.com",
                 "debora.portilho.3@facebook.com",
-                "pr_barcelos@hotmail.com"   
+                "pr_barcelos@hotmail.com"   */
                 }, 
                 null, 
                 null, 
