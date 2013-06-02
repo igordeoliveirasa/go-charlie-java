@@ -44,7 +44,7 @@ public class SimpleSMTP implements ISMTP {
         }
     }
     
-    @Override
+    /*@Override
     public boolean sendTextMail(String from, String displayName, String to, String cc, String bcc, String subject, String message) {
         
         return sendTextMail(from, displayName, takeCareOfArrayInput(to), takeCareOfArrayInput(cc), takeCareOfArrayInput(bcc), subject, message);
@@ -105,7 +105,7 @@ public class SimpleSMTP implements ISMTP {
                 return false;
         }
         return true;
-    }  
+    }  */
 
     @Override
     public boolean sendHTMLMail(String from, String displayName, String to, String cc, String bcc, String subject, String htmlMessage) {
@@ -126,7 +126,7 @@ public class SimpleSMTP implements ISMTP {
         try {
 
             MimeMessage mimeMessage = new MimeMessage(session);
-            mimeMessage.setFrom(new InternetAddress(this.username, displayName));
+            mimeMessage.setFrom(new InternetAddress(this.username, displayName, "UTF-8"));
             
             mimeMessage.setReplyTo(new javax.mail.Address[]
             {
