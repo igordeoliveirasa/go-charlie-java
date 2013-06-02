@@ -127,7 +127,7 @@ public class SimpleSMTP implements ISMTP {
 
             MimeMessage mimeMessage = new MimeMessage(session);
             mimeMessage.setHeader("Content-Type", "text/html; charset=UTF-8");
-            mimeMessage.setFrom(new InternetAddress(this.username, displayName, "UTF-8"));
+            mimeMessage.setFrom(new InternetAddress(from, displayName, "UTF-8"));
             
             mimeMessage.setReplyTo(new javax.mail.Address[]
             {
