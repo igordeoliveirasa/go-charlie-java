@@ -42,8 +42,8 @@ public class SMTPFactoryTest extends TestCase {
     */
     public void testSendHTMLMailHelloWorld() {
         //ISMTP smtp = SMTPFactory.build("smtp.prateleiravirtual.com", "contato@prateleiravirtual.com", PASSWORD, SMTPFactory.SMTP_DEFAULT_PORT);
-        //ISMTP smtp = SMTPFactory.build("smtp.sendgrid.net", "app15966392@heroku.com", "Umg0erre123!", SMTPFactory.SMTP_DEFAULT_PORT);
-        ISMTP smtp = SMTPFactory.build("smtp.gmail.com", "igordeoliveirasa@gmail.com", "igor115056", SMTPFactory.SMTP_DEFAULT_PORT);
+        //ISMTP smtp = SMTPFactory.build("smtp.sendgrid.net", "app15966392@heroku.com", "", SMTPFactory.SMTP_DEFAULT_PORT);
+        ISMTP smtp = SMTPFactory.build("smtp.gmail.com", "igordeoliveirasa@gmail.com", "", SMTPFactory.SMTP_DEFAULT_PORT);
         
         
         String message="";
