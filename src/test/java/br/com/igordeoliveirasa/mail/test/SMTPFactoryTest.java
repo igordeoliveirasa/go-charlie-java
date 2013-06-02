@@ -43,8 +43,8 @@ public class SMTPFactoryTest extends TestCase {
     public void testSendHTMLMailHelloWorld() {
         //ISMTP smtp = SMTPFactory.build("smtp.prateleiravirtual.com", "contato@prateleiravirtual.com", PASSWORD, SMTPFactory.SMTP_DEFAULT_PORT);
         //ISMTP smtp = SMTPFactory.build("smtp.sendgrid.net", "app15966392@heroku.com", "", SMTPFactory.SMTP_DEFAULT_PORT);
-        //ISMTP smtp = SMTPFactory.build("smtp.gmail.com", "igordeoliveirasa@gmail.com", "", SMTPFactory.SMTP_DEFAULT_PORT);
-        ISMTP smtp = SMTPFactory.build("smtp.prateleiravirtual.com", "contato@prateleiravirtual.com", "", SMTPFactory.SMTP_DEFAULT_PORT);
+        ISMTP smtp = SMTPFactory.build("smtp.gmail.com", "msg.automatica.pvirtual@gmail.com", "", SMTPFactory.SMTP_DEFAULT_PORT);
+        //ISMTP smtp = SMTPFactory.build("smtp.prateleiravirtual.com", "contato@prateleiravirtual.com", "", SMTPFactory.SMTP_DEFAULT_PORT);
         
         String message="";
         try {
@@ -54,7 +54,7 @@ public class SMTPFactoryTest extends TestCase {
         }
         
         
-        boolean ret = smtp.sendHTMLMail("contato@prateleiravirtual.com",
+        boolean ret = smtp.sendHTMLMail("msg.automatica.pvirtual@gmail.com",
                 "Prateleira Virtual",
                 new String[] {
                     //"igor.deoliveirasa@facebook.com",
