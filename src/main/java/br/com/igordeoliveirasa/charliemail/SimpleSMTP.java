@@ -165,8 +165,8 @@ public class SimpleSMTP implements ISMTP {
             Transport.send(mimeMessage);
         } catch (UnsupportedEncodingException ex) {
             Logger.getLogger(SimpleSMTP.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (MessagingException e) {
-                //throw new RuntimeException(e);
+        } catch (MessagingException ex) {
+                Logger.getLogger(SimpleSMTP.class.getName()).log(Level.SEVERE, null, ex);
                 return false;
         }
         return true;
