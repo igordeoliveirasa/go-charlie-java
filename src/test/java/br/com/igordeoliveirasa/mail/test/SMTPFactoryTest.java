@@ -56,8 +56,8 @@ public class SMTPFactoryTest extends TestCase {
         boolean ret = smtp.sendHTMLMail("igordeoliveirasa@gmail.com",
                 "Prateleira Virtual",
                 new String[] {
-                    "igor.deoliveirasa@facebook.com",
-                    "igordeoliveirasa@gmail.com", 
+                    //"igor.deoliveirasa@facebook.com",
+                    //"igordeoliveirasa@gmail.com", 
                     "mligordeoliveirasa@gmail.com" 
                     /*"debrynha_portilho@hotmail.com", 
                     "deboraportilho@bol.com.br",
