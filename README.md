@@ -1,18 +1,17 @@
 CharlieMail
 ===========
-
 This is a simple Mail Utils developed in JAVA Language. 
 
-# Usage
-
+Usage
+----------
 Start reading, setting and testing the SMTPFactoryTest.
 
-# Important
-
+Important
+----------
 Change the PASSWORD value located at the top of the SMTPFactoryTest class.
 
-# Conclusion
-
+Conclusion
+----------
 Currently I have the SMTP done. 
 Help me improving this project =) 
 Thanks!
